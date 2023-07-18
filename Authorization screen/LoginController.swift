@@ -43,7 +43,7 @@ class LoginController: UIViewController {
 
     private func goToDetailPage() {
         let viewController = DetailViewController()
-        if let  navigator = navigationController {
+        if let navigator = navigationController {
             navigator.pushViewController(viewController, animated: true)
         }
     }
