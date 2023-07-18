@@ -8,9 +8,15 @@
 import UIKit
 
 class LoginController: UIViewController {
+    var viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+    }
+
+    private func bindViewModel() {
+
     }
 
 

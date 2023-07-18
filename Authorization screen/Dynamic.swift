@@ -11,7 +11,7 @@ class Dynamic<T> {
     typealias Listener = (T) -> Void
     private var listener: Listener?
 
-    init(value: T) {
+    init(_ value: T) {
         self.value = value
     }
 
