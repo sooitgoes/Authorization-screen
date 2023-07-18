@@ -12,6 +12,7 @@
 		D10E69412A66B74B00ECD98B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E69402A66B74B00ECD98B /* LoginController.swift */; };
 		D10E69462A66B74C00ECD98B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E69452A66B74C00ECD98B /* Assets.xcassets */; };
 		D10E69492A66B74C00ECD98B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D10E69472A66B74C00ECD98B /* LaunchScreen.storyboard */; };
+		D10E695C2A66C27400ECD98B /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E695B2A66C27400ECD98B /* UserAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D10E69452A66B74C00ECD98B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D10E69482A66B74C00ECD98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D10E694A2A66B74C00ECD98B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D10E695B2A66C27400ECD98B /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +102,17 @@
 			isa = PBXGroup;
 			children = (
 				D10E69402A66B74B00ECD98B /* LoginController.swift */,
+				D10E695A2A66C23100ECD98B /* Model */,
 			);
 			name = LoginView;
+			sourceTree = "<group>";
+		};
+		D10E695A2A66C23100ECD98B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D10E695B2A66C27400ECD98B /* UserAccount.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				D10E69412A66B74B00ECD98B /* LoginController.swift in Sources */,
 				D10E693D2A66B74B00ECD98B /* AppDelegate.swift in Sources */,
 				D10E693F2A66B74B00ECD98B /* SceneDelegate.swift in Sources */,
+				D10E695C2A66C27400ECD98B /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
