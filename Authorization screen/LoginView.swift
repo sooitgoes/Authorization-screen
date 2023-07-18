@@ -11,52 +11,67 @@ class LoginView: UIView {
 
     // MARK: - UI Elements
     private lazy var loginLabel: UILabel = {
-        let login = UILabel()
-        login.text = "Login screen"
-        login.textColor = .lightGray
-        login.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        login.translatesAutoresizingMaskIntoConstraints = false
-        return login
+        let label = UILabel()
+        label.text = "Login screen"
+        label.textColor = .lightGray
+        label.font = .systemFont(ofSize: 25, weight: .heavy)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     private lazy var loginField: UITextField = {
         let loginField = UITextField()
         loginField.placeholder = "Patrick123"
-        loginField.font = UIFont.systemFont(ofSize: 15)
+        loginField.textAlignment = .center
+        loginField.font = .systemFont(ofSize: 15)
         loginField.backgroundColor = .white
-        loginField.layer.cornerRadius = 25
+        loginField.layer.masksToBounds = true
+        loginField.layer.cornerRadius = 20
         loginField.tintColor = .black
-        loginField.translatesAutoresizingMaskIntoConstraints = false
         return loginField
     }()
 
     private lazy var passwordField: UITextField = {
         let passwordField = UITextField()
         passwordField.placeholder = "Password"
-        passwordField.font = UIFont.systemFont(ofSize: 15)
+        passwordField.textAlignment = .center
+        passwordField.font = .systemFont(ofSize: 15)
         passwordField.backgroundColor = .white
-        passwordField.layer.cornerRadius = 25
+        passwordField.layer.masksToBounds = true
+        passwordField.layer.cornerRadius = 20
         passwordField.tintColor = .black
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
         return passwordField
     }()
 
     private lazy var loginButton: UIButton = {
         let loginButton = UIButton(type: .system)
         loginButton.setTitle("Login", for: .normal)
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        loginButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         loginButton.setTitleColor(.white, for: .normal)
+        loginButton.layer.masksToBounds = true
+        loginButton.layer.cornerRadius = 20
         loginButton.backgroundColor = .cyan
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         return loginButton
     }()
 
     private lazy var statusLabel: UILabel = {
-        let login = UILabel()
-        login.textColor = .black
-        login.font = UIFont.systemFont(ofSize: 25, weight: .heavy)
-        login.translatesAutoresizingMaskIntoConstraints = false
-        return login
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+//        label.text = "Invalid login or password. Please try again."
+        label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    private lazy var stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 20
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
     }()
 
     // MARK: - Initiaziers
@@ -64,6 +79,7 @@ class LoginView: UIView {
         super.init(frame: frame)
         setupHierarchy()
         setupLayout()
+        backgroundColor = .systemBlue
     }
 
     required init?(coder: NSCoder) {
@@ -72,12 +88,34 @@ class LoginView: UIView {
 
     // MARK: - Setup
     private func setupHierarchy() {
-
+        stackView.addArrangedSubview(loginField)
+        stackView.addArrangedSubview(passwordField)
+        addSubview(loginLabel)
+        addSubview(stackView)
+        addSubview(loginButton)
+        addSubview(statusLabel)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
+            loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loginLabel.centerYAnchor.constraint(equalTo: topAnchor, constant: 150),
 
+            stackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 100),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
+
+            loginField.heightAnchor.constraint(equalToConstant: 44),
+            passwordField.heightAnchor.constraint(equalToConstant: 44),
+
+            loginButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
+            loginButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
+            loginButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
+            loginButton.heightAnchor.constraint(equalToConstant: 44),
+
+            statusLabel.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -50),
+            statusLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
+            statusLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -50)
         ])
     }
 }
