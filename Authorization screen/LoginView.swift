@@ -98,7 +98,7 @@ class LoginView: UIView {
     private func setupLayout() {
         NSLayoutConstraint.activate([
             loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            loginLabel.centerYAnchor.constraint(equalTo: topAnchor, constant: 150),
+            loginLabel.topAnchor.constraint(equalTo: topAnchor, constant: 150),
 
             stackView.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 100),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
@@ -107,14 +107,14 @@ class LoginView: UIView {
             loginField.heightAnchor.constraint(equalToConstant: 44),
             passwordField.heightAnchor.constraint(equalToConstant: 44),
 
-            loginButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
+            statusLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 80),
+            statusLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
+            statusLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
+
+            loginButton.topAnchor.constraint(equalTo: statusLabel.topAnchor, constant: 80),
             loginButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
             loginButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
             loginButton.heightAnchor.constraint(equalToConstant: 44),
-
-            statusLabel.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -50),
-            statusLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
-            statusLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -50)
         ])
     }
 }
