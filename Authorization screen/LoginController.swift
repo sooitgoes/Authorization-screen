@@ -10,8 +10,14 @@ import UIKit
 class LoginController: UIViewController {
     var viewModel = ViewModel()
 
+    private var loginView: LoginView? {
+        guard isViewLoaded else { return nil }
+        return view as? LoginView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = LoginView()
         bindViewModel()
     }
 
