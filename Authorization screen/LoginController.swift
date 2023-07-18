@@ -29,12 +29,23 @@ class LoginController: UIViewController {
         viewModel.statusText.bind { text in
             DispatchQueue.main.async {
                 self.loginView?.statusLabel.text = text
-            }   
+
+                if self.loginView?.loginField.text == "Patrick123" && self.loginView?.passwordField.text == "12345" {
+                    self.goToDetailPage()
+                }
+            }
         }
     }
 
     private func buttonAction() {
         loginView?.loginButton.addTarget(self, action: #selector(add), for: .touchUpInside)
+    }
+
+    private func goToDetailPage() {
+        let viewController = DetailViewController()
+        if let  navigator = navigationController {
+            navigator.pushViewController(viewController, animated: true)
+        }
     }
 
     // MARK: - Action
