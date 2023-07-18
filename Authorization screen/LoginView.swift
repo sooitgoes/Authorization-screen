@@ -10,7 +10,7 @@ import UIKit
 class LoginView: UIView {
 
     // MARK: - UI Elements
-    private lazy var loginLabel: UILabel = {
+    lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.text = "Login screen"
         label.textColor = .white
@@ -19,7 +19,7 @@ class LoginView: UIView {
         return label
     }()
 
-    private lazy var loginField: UITextField = {
+    lazy var loginField: UITextField = {
         let loginField = UITextField()
         loginField.placeholder = "Patrick123"
         loginField.textAlignment = .center
@@ -31,7 +31,7 @@ class LoginView: UIView {
         return loginField
     }()
 
-    private lazy var passwordField: UITextField = {
+    lazy var passwordField: UITextField = {
         let passwordField = UITextField()
         passwordField.placeholder = "Password"
         passwordField.textAlignment = .center
@@ -43,7 +43,7 @@ class LoginView: UIView {
         return passwordField
     }()
 
-    private lazy var loginButton: UIButton = {
+    lazy var loginButton: UIButton = {
         let loginButton = UIButton(type: .system)
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
@@ -55,18 +55,17 @@ class LoginView: UIView {
         return loginButton
     }()
 
-    private lazy var statusLabel: UILabel = {
+    lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.textAlignment = .center
-//        label.text = "Invalid login or password. Please try again."
         label.numberOfLines = 2
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-    private lazy var stackView: UIStackView = {
+    
+    lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 20
