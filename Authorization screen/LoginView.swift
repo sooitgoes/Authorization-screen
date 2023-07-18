@@ -13,8 +13,8 @@ class LoginView: UIView {
     private lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.text = "Login screen"
-        label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 25, weight: .heavy)
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 30, weight: .heavy)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,7 +50,7 @@ class LoginView: UIView {
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.layer.masksToBounds = true
         loginButton.layer.cornerRadius = 20
-        loginButton.backgroundColor = .cyan
+        loginButton.backgroundColor = .systemIndigo
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         return loginButton
     }()
@@ -79,7 +79,7 @@ class LoginView: UIView {
         super.init(frame: frame)
         setupHierarchy()
         setupLayout()
-        backgroundColor = .systemBlue
+        backgroundColor = .gray
     }
 
     required init?(coder: NSCoder) {
