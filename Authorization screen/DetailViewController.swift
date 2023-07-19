@@ -13,16 +13,26 @@ class DetailViewController: UIViewController {
     private lazy var greetingLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome !"
-        label.font = .systemFont(ofSize: 30, weight: .heavy)
+        label.font = .systemFont(ofSize: 50, weight: .heavy)
         label.textColor = .systemBlue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
+    private lazy var image: UIImageView = {
+        let image = UIImage(named: "Patrick")
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        return imageView
+    }()
+
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        view.backgroundColor = .systemMint
         setupHierarchy()
         setupLayout()
         setupNavigationController()
@@ -31,23 +41,21 @@ class DetailViewController: UIViewController {
 //    // MARK: - Setup
     private func setupHierarchy() {
         view.addSubview(greetingLabel)
+        view.addSubview(image)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
             greetingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            greetingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            greetingLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+
+            image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            image.bottomAnchor.constraint(equalTo: greetingLabel.topAnchor, constant: -10)
         ])
     }
 
     func setupNavigationController() {
-        let image = UIImage(systemName: "arrow.down")
-
-        navigationController?.navigationBar.tintColor = .systemBlue
-        navigationItem.setLeftBarButton(UIBarButtonItem(
-            title: nil,
-            image: image,
-            primaryAction: UIAction(handler: { _ in self.navigationController?.popViewController(animated: true) }),
-            menu: nil), animated:  true)
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", image: nil)
     }
 }

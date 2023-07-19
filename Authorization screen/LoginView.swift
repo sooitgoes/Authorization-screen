@@ -38,6 +38,7 @@ class LoginView: UIView {
         passwordField.font = .systemFont(ofSize: 15)
         passwordField.backgroundColor = .white
         passwordField.layer.masksToBounds = true
+        passwordField.isSecureTextEntry = true
         passwordField.layer.cornerRadius = 20
         passwordField.tintColor = .black
         return passwordField
@@ -60,7 +61,8 @@ class LoginView: UIView {
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 20, weight: .regular)
+        label.textColor = .systemRed
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
